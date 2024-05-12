@@ -8,5 +8,6 @@ class CabinetPageLocators():
     NOTIFICATIONS_MODAL_PAGE = (By.XPATH, "//*[(@class, 'vkuiModalPage__in-wrap')]")
     USER_AVATAR = (By.XPATH, "//*[contains(@class, 'userMenu_avatar__')]")
     LOGOUT_BUTTON = (By.XPATH, "//*[contains(@class, 'userMenu_logoutButton__')]")
-    VK_ICON = (By.XPATH, "//*[contains(@class, 'header_logo__7lhb6')]")
+    VK_ICON = (By.XPATH, "//*[contains(@class, 'header_logo__')]")
+    EDUCATION_BUTTON = (By.XPATH, "//*[@data-testid='left-menu']//span[text()=Обучение]")
 

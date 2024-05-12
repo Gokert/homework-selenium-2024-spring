@@ -27,6 +27,10 @@ class TestCabinet1(BaseCase):
         cabinet_page.click_vk_icon()
         assert self.is_opened('https://ads.vk.com/hq/overview')
 
+    def test_modal_page_education(self, cabinet_page):
+        cabinet_page.modal_page_education()
+        # assert
+
     def test_logout(self, cabinet_page):
         cabinet_page.click_user_avatar()
         cabinet_page.click_logout_button()
