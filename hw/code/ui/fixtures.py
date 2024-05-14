@@ -12,8 +12,7 @@ from ui.pages.cabinet_page import CabinetPage
 from ui.pages.settings_page import SettingsPage
 
 
-
-@pytest.fixture(scope='session')
+@pytest.fixture
 def driver(config):
     browser = config.get('browser')
     url = config.get('url')
@@ -52,15 +51,16 @@ def credentials_with_cabinet():
     return os.getenv("LOGIN_NAME"), os.getenv("PASSWORD")
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture
 def auth_page(driver):
     return AuthPage(driver=driver)
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture
 def cabinet_page(driver, credentials_with_cabinet, auth_page):
     auth_page.login(*credentials_with_cabinet)
     return CabinetPage(driver=driver)
+
 
 @pytest.fixture
 def settings_page(driver, cabinet_page):

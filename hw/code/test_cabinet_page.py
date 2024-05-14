@@ -1,24 +1,6 @@
-import time
 import pytest
 from base_case import BaseCase
-
-left_menu_clicked = [
-    ('Сайты', 'https://ads.vk.com/hq/pixels'),
-    ('Мобильные приложения', 'https://ads.vk.com/hq/apps'),
-    ('Аудитории', 'https://ads.vk.com/hq/audience'),
-    ('Бюджет', 'https://ads.vk.com/hq/budget/transactions'),
-    ('Центр коммерции', 'https://ads.vk.com/hq/ecomm/catalogs'),
-    ('Лид-формы', 'https://ads.vk.com/hq/leadads/leadforms'),
-    ('Настройки', 'https://ads.vk.com/hq/settings'),
-    ('Обзор', 'https://ads.vk.com/hq/overview'),
-]
-
-help_menu = [
-    ('Кейсы компаний', 'https://ads.vk.com/cases'),
-    ('Справка', 'https://ads.vk.com/help'),
-    ('Форум идей', 'https://ads.vk.com/upvote'),
-    ('Задать вопрос', 'https://vk.com/im?media=&sel=-212221031'),
-]
+from configs import left_menu_clicked
 
 
 class TestCabinet(BaseCase):
@@ -34,7 +16,12 @@ class TestCabinet(BaseCase):
         cabinet_page.click_help()
         assert cabinet_page.check_modal_page_help()
 
-    # def test_logout(self, cabinet_page):
-    #     cabinet_page.click_user_avatar()
-    #     cabinet_page.click_logout_button()
-    #     assert self.is_opened('https://ads.vk.com/')
+    def test_control_id(self, cabinet_page):
+        cabinet_page.click_user_avatar()
+        cabinet_page.click_control_id()
+        assert self.is_opened('https://id.vk.com/auth')
+
+    def test_logout(self, cabinet_page):
+        cabinet_page.click_user_avatar()
+        cabinet_page.click_logout_button()
+        assert self.is_opened('https://ads.vk.com/')
