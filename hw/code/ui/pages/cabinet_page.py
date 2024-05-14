@@ -15,8 +15,23 @@ class CabinetPage(BasePage):
     def click_user_avatar(self):
         self.click(self.locators.USER_AVATAR)
 
+    def click_education_modal_exit(self):
+        self.click(self.locators.EDUCATION_EXIT)
+
     def click_logout_button(self):
         self.click(self.locators.LOGOUT_BUTTON)
 
-    def modal_page_education(self):
+    def click_help(self):
+        self.click(self.locators.HELP_ICON)
+
+    def check_modal_page_help(self):
+        return self.became_visible(self.locators.HELP_MODAL, 5)
+
+    def click_help_menu(self):
+        self.click(self.locators.HELP_MENU())
+
+    def check_modal_page_education(self):
+        return self.became_visible(self.locators.EDUCATION_MODAL, 5)
+
+    def click_modal_page_education(self):
         self.click(self.locators.EDUCATION_BUTTON)

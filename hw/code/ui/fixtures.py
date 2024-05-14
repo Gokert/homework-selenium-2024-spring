@@ -9,6 +9,8 @@ from selenium.webdriver.chrome.options import Options
 from ui.pages.auth_page import AuthPage
 
 from ui.pages.cabinet_page import CabinetPage
+from ui.pages.settings_page import SettingsPage
+
 
 
 @pytest.fixture(scope='session')
@@ -59,3 +61,8 @@ def auth_page(driver):
 def cabinet_page(driver, credentials_with_cabinet, auth_page):
     auth_page.login(*credentials_with_cabinet)
     return CabinetPage(driver=driver)
+
+@pytest.fixture
+def settings_page(driver, cabinet_page):
+    driver.get(SettingsPage.url)
+    return SettingsPage(driver=driver)
