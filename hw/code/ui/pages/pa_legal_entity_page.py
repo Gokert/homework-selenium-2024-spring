@@ -18,10 +18,10 @@ class PALegalEntityPage(BasePage):
     def click_to_bell(self):
         self.click(self.locators.LOCATOR_BELL)
     
-    # def check_bell_text_field(self):
-    #     assert self.get_text((By.XPATH, ".//div[contains(@class, 'vkuiHeader__main')]/h2/span[1]/span[1]")) == "Уведомления"
-    #     assert self.get_text((By.XPATH, ".//div[contains(@class, 'EmptyPlaceholder_wrapper__8LcAC')]/div[1]/h2")) == "Нет уведомлений"
-    #     assert self.get_text((By.XPATH, ".//h4/span[1]/span[1]")) == "Как только у вас появятся уведомления, они отобразятся здесь"
+    def check_bell_text_field(self):
+        assert self.get_text((By.XPATH, ".//div[contains(@class, 'vkuiHeader__main')]/h2/span[1]/span[1]")) == "Уведомления"
+        assert self.get_text((By.XPATH, ".//div[contains(@class, 'EmptyPlaceholder_wrapper__8LcAC')]/div[1]/h2")) == "Нет уведомлений"
+        assert self.get_text((By.XPATH, ".//h4/span[1]/span[1]")) == "Как только у вас появятся уведомления, они отобразятся здесь"
 
     def click_to_user_ico(self):
         self.click(self.locators.LOCATOR_USER_ICO)

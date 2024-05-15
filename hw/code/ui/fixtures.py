@@ -68,7 +68,13 @@ def settings_page(driver, cabinet_page):
     driver.get(SettingsPage.url)
     return SettingsPage(driver=driver)
 
+@pytest.fixture(scope='session')
+def credentials_legal_entity():
+    load_dotenv()
+    return os.getenv("LOGIN_NAME_LEGAL_ENTITY"), os.getenv("PASSWORD_LEGAL_ENTITY")
+
 @pytest.fixture
-def legal_entity_page(driver, cabinet_page):
-    driver.get(SettingsPage.url)
+def legal_entity_page(driver, credentials_legal_entity, auth_page):
+    # driver.get(SettingsPage.url)
+    auth_page.login(*credentials_legal_entity)
     return PALegalEntityPage(driver=driver)
