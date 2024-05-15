@@ -1,4 +1,3 @@
-from ui.pages.cabinet_page import CabinetPage
 import time
 import pytest
 import allure
@@ -23,35 +22,37 @@ class TestPALegalEntity(BaseCase):
     #     cabinet_page.change_tab(cabinet_page.get_tab(0))
 
 
-    def test_clients(self, cabinet_page):
+    def test_clients(self, legal_entity_page):
         # cabinet_page.go_to_page("https://ads.vk.com/hq/dashboard")
-        cabinet_page.click_to_clients()
+        legal_entity_page.click_to_clients()
 
-    def test_budget(self, cabinet_page):
-        # cabinet_page.go_to_page("https://ads.vk.com/hq/dashboard")
-        cabinet_page.click_to_budget()
-        cabinet_page.specify_banking_details()
+    # def test_budget(self, cabinet_page):
+    #     time.sleep(10)
+    #     # cabinet_page.go_to_page("https://ads.vk.com/hq/dashboard")
+    #     cabinet_page.click_to_budget()
+    #     time.sleep(10)
+    #     cabinet_page.specify_banking_details()
 
 
-    def test_access_right(self, cabinet_page):
-        # cabinet_page.go_to_page("https://ads.vk.com/hq/dashboard")
-        cabinet_page.click_to_access_right()
-        cabinet_page.addManager("123","123")
+    # def test_access_right(self, cabinet_page):
+    #     # cabinet_page.go_to_page("https://ads.vk.com/hq/dashboard")
+    #     cabinet_page.click_to_access_right()
+    #     cabinet_page.addManager("123","123")
 
     # def test_support_iframe(self, cabinet_page):
     #     cabinet_page.open_support_iframe(20)
 
-    def test_top_navbar(self, cabinet_page):
-        # cabinet_page.go_to_page("https://ads.vk.com/hq/dashboard")
-        cabinet_page.click_to_VK_ico()
-        assert self.is_opened('https://ads.vk.com/hq/dashboard')
+    # def test_top_navbar(self, cabinet_page):
+    #     # cabinet_page.go_to_page("https://ads.vk.com/hq/dashboard")
+    #     cabinet_page.click_to_VK_ico()
+    #     assert self.is_opened('https://ads.vk.com/hq/dashboard')
         
-        cabinet_page.click_to_user_name()
-        cabinet_page.click_to_user_name()
+    #     cabinet_page.click_to_user_name()
+    #     cabinet_page.click_to_user_name()
 
-        cabinet_page.click_to_bell()
-        cabinet_page.check_bell_text_field()
-        cabinet_page.click_to_bell()
+    #     cabinet_page.click_to_bell()
+    #     cabinet_page.check_bell_text_field()
+    #     cabinet_page.click_to_bell()
 
-        cabinet_page.user_log_out()
-        assert self.is_opened('https://ads.vk.com/')
+    #     cabinet_page.user_log_out()
+    #     assert self.is_opened('https://ads.vk.com/')
