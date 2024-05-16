@@ -67,10 +67,11 @@ class BasePage(object):
     def get_text(self, locator):
         return self.find(locator).text
     
-    @allure.step('Change Tab')    
+    @allure.step('Change Tab')
     def change_tab(self, window):
         return self.driver.switch_to.window(window)
     
+    @allure.step('Change iFrame')
     def switch_to_iframe(self, iframe):
         return self.driver.switch_to.frame(iframe)
 
