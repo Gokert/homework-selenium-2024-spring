@@ -1,13 +1,4 @@
-import time
-import pytest
 from base_case import BaseCase
-
-header_menu = [
-    ('Общие', 'https://ads.vk.com/hq/settings'),
-    ('Уведомления', 'https://ads.vk.com/hq/settings/notifications'),
-    ('Права доступа', 'https://ads.vk.com/hq/settings/access'),
-    ('История изменений', 'https://ads.vk.com/hq/settings/logs'),
-]
 
 
 class TestSetting(BaseCase):

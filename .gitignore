@@ -1,4 +1,6 @@
-.env
 .idea
 .venv
-hw/code/__pycache__
+__pycache__/
+
+sel_py/
+.env

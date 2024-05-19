@@ -24,3 +24,6 @@ class BaseCase:
         except:
             raise PageNotOpenedException(
                 f'{url} did not open in {timeout} secs, current url {self.driver.current_url}')
+
+    def back_history(self):
+        self.driver.back()

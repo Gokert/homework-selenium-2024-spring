@@ -1,8 +1,9 @@
 import time
-
 import allure
-from selenium.webdriver.remote.webelement import WebElement
+
 from ui.locators import basic_locators
+
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common import TimeoutException
@@ -24,7 +25,8 @@ class BasePage(object):
 
     def __init__(self, driver):
         self.driver = driver
-        self.is_opened()
+        # fix it
+        # self.is_opened()
 
     def wait(self, timeout=None):
         if timeout is None:
@@ -61,3 +63,23 @@ class BasePage(object):
             return True
         except TimeoutException:
             return False
+        
+    @allure.step('Get text')
+    def get_text(self, locator):
+        return self.find(locator).text
+    
+    @allure.step('Change Tab')
+    def change_tab(self, window):
+        return self.driver.switch_to.window(window)
+    
+    @allure.step('Change iFrame')
+    def switch_to_iframe(self, iframe):
+        return self.driver.switch_to.frame(iframe)
+
+    @allure.step('Close current tab')
+    def close_current_tab(self):
+        return self.driver.close()
+
+    @allure.step('Get tab')
+    def get_tab(self, tab_num):
+        return self.driver.window_handles[tab_num]

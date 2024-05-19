@@ -18,6 +18,9 @@ class CabinetPage(BasePage):
     def click_education_modal_exit(self):
         self.click(self.locators.EDUCATION_EXIT)
 
+    def click_control_id(self):
+        self.click(self.locators.CONTROL_ID_BUTTON)
+
     def click_logout_button(self):
         self.click(self.locators.LOGOUT_BUTTON)
 
