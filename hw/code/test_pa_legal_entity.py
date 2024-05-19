@@ -36,8 +36,10 @@ class TestPALegalEntity(BaseCase):
         legal_entity_page.click_to_access_right()
         legal_entity_page.addManager("123","123")
 
-    # def test_support_iframe(self, legal_entity_page):
-    #     legal_entity_page.open_support_iframe(20)
+    @allure.sub_suite("Тестирование меню поддержки")
+    def test_support_iframe(self, legal_entity_page):
+        # это тест не работает
+        legal_entity_page.open_support_iframe(20)
 
     @allure.sub_suite("Тестирование навигационного меню")
     def test_top_navbar(self, legal_entity_page):

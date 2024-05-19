@@ -9,8 +9,11 @@ RunAllTests:
 RunFallTests:
 	pytest hw/code/ --lf --setup-show --capture=no
 
-RunCurrentTest:
-	pytest hw/code/$(testName) --lf --setup-show --capture=no
+RunCurrentTestSuit:
+	pytest hw/code/$(testName)
+
+RunCurrentTestCase:
+	pytest hw/code/$(testName) -k "$(testSuit)"
 
 #
 #pytest	--setup-show
