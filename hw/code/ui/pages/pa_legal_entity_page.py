@@ -5,6 +5,9 @@ from selenium.common.exceptions import TimeoutException
 
 import allure
 
+from selenium.webdriver.common.by import By
+import time
+
 class PALegalEntityPage(BasePage):
     locators = PALegalEntityLocators()
 
@@ -74,7 +77,9 @@ class PALegalEntityPage(BasePage):
         self.click(self.locators.LOCATOR_ADD_MANAGER_NEXT_BUTTON)
         self.click(self.locators.LOCATOR_ADD_MANAGER_CLOSE)
 
-    # def open_support_iframe(self, wait_time):
-    #     time.sleep(wait_time)
-    #     self.click((By.XPATH, "//div[@id='vk_community_messages']"))
-    #     self.switch_to_iframe(self.locators.LOCATOR_SUPPORT_IFRAME)
+    def open_support_iframe(self, wait_time):
+        time.sleep(40)
+        iframe1 = self.switch_to_iframe(self.find((By.XPATH, ".//div[@id='vk_community_messages']/iframe"),wait_time))
+        print(type(iframe1))
+        self.click((By.XPATH, ".//div[@id='stl_left"),wait_time)
+        time.sleep(20)

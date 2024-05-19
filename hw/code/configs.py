@@ -10,7 +10,7 @@ left_menu_clicked = [
     ('Аудитории', 'https://ads.vk.com/hq/audience'),
     ('Бюджет', 'https://ads.vk.com/hq/budget/transactions'),
     ('Центр коммерции', 'https://ads.vk.com/hq/ecomm/catalogs'),
-    ('Лид-формы', 'https://ads.vk.com/hq/leadads/leadforms'),
+    ('Лид-формы и опросы', 'https://ads.vk.com/hq/leadads/leadforms'),
     ('Настройки', 'https://ads.vk.com/hq/settings'),
     ('Обзор', 'https://ads.vk.com/hq/overview'),
 ]

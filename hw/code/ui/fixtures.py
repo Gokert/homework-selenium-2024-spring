@@ -62,11 +62,11 @@ def cabinet_page(driver, credentials_with_cabinet, auth_page):
     auth_page.login(*credentials_with_cabinet)
     return CabinetPage(driver=driver)
 
-
 @pytest.fixture
 def settings_page(driver, cabinet_page):
     driver.get(SettingsPage.url)
     return SettingsPage(driver=driver)
+
 
 @pytest.fixture(scope='session')
 def credentials_legal_entity():
