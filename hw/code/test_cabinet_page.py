@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from base_case import BaseCase
 from configs import left_menu_clicked
