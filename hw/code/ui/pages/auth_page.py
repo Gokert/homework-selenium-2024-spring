@@ -1,5 +1,4 @@
-import time
-
+from selenium.webdriver.common.by import By
 from ui.locators.auth_page_locators import AuthPageLocators
 from ui.pages.base_page import BasePage
 
@@ -16,4 +15,4 @@ class AuthPage(BasePage):
 
         self.find_clickable(self.locators.PASSWORD).send_keys(password)
         self.click(self.locators.OAUTH_SUBMIT)
-        time.sleep(1)
+        self.find(locator=(By.ID, "header"))
