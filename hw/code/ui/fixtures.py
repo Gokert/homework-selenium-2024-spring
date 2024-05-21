@@ -84,3 +84,8 @@ def legal_entity_page(driver, credentials_legal_entity, auth_page):
     # driver.get(SettingsPage.url)
     auth_page.login(*credentials_legal_entity)
     return PALegalEntityPage(driver=driver)
+
+@pytest.fixture
+def upvote_page(driver):
+    driver.get(UpvotePage.url)
+    return UpvotePage(driver=driver)
