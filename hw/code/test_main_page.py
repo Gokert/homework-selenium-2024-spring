@@ -10,6 +10,23 @@ class TestMainPage(BaseCase):
         main_page.click_nav_button("VK_NEWS_BTN")
         assert self.is_opened("https://ads.vk.com/news")
 
+    def test_go_to_cases_page_nav(self, main_page):
+        main_page.click_nav_button("CASES_BTN")
+        assert self.is_opened("https://ads.vk.com/cases")
+
+    def test_go_to_ideas_forum_page_nav(self, main_page):
+        main_page.click_nav_button("IDEAS_FORUM_BTN")
+        assert self.is_opened("https://ads.vk.com/upvote")
+
+    def test_go_to_monetization_page_nav(self, main_page):
+        main_page.click_nav_button("MONETIZATION_BTN")
+        main_page.switch_to_new_tab()
+        assert self.is_opened("https://ads.vk.com/partner")
+
+    def test_go_to_help_page_nav(self, main_page):
+        main_page.click_nav_button("INFORMATION_BTN")
+        assert self.is_opened("https://ads.vk.com/help")
+
     def test_go_to_insights_nav(self, main_page):
         main_page.open_education_dropdown_menu()
         main_page.click_dropdown_menu_button("INSIGHTS_BTN")
@@ -31,23 +48,6 @@ class TestMainPage(BaseCase):
         main_page.click_dropdown_menu_button("CERTIFICATION_BTN")
         main_page.switch_to_new_tab()
         assert self.is_opened("https://expert.vk.com/certification/")
-
-    def test_go_to_cases_page_nav(self, main_page):
-        main_page.click_nav_button("CASES_BTN")
-        assert self.is_opened("https://ads.vk.com/cases")
-
-    def test_go_to_ideas_forum_page_nav(self, main_page):
-        main_page.click_nav_button("IDEAS_FORUM_BTN")
-        assert self.is_opened("https://ads.vk.com/upvote")
-
-    def test_go_to_monetization_page_nav(self, main_page):
-        main_page.click_nav_button("MONETIZATION_BTN")
-        main_page.switch_to_new_tab()
-        assert self.is_opened("https://ads.vk.com/partner")
-
-    def test_go_to_help_page_nav(self, main_page):
-        main_page.click_nav_button("INFORMATION_BTN")
-        assert self.is_opened("https://ads.vk.com/help")
 
     def test_go_to_auth_page_nav(self, main_page):
         main_page.click_cabinet_nav_button()
