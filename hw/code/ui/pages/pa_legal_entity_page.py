@@ -77,9 +77,12 @@ class PALegalEntityPage(BasePage):
         self.click(self.locators.LOCATOR_ADD_MANAGER_NEXT_BUTTON)
         self.click(self.locators.LOCATOR_ADD_MANAGER_CLOSE)
 
+    @allure.step("Раскрытие чата с поддержкой")
     def open_support_iframe(self, wait_time):
-        time.sleep(40)
-        iframe1 = self.switch_to_iframe(self.find((By.XPATH, ".//div[@id='vk_community_messages']/iframe"),wait_time))
-        print(type(iframe1))
-        self.click((By.XPATH, ".//div[@id='stl_left"),wait_time)
-        time.sleep(20)
+        self.switch_to_iframe(self.find((By.XPATH, ".//div[@id='vk_community_messages']/iframe"),wait_time))
+        self.switch_to_iframe(self.find((By.XPATH, ".//iframe"),wait_time))
+        self.click((By.XPATH, ".//div[@id='root']/div/section/div"),wait_time)
+
+    @allure.step("Сворачивание чата с поддержкой")
+    def close_support_iframe(self, wait_time):
+        self.click((By.XPATH, ".//button[@class='SAKIconButton']"),wait_time)
