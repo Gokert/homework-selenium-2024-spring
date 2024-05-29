@@ -100,3 +100,8 @@ def company_page(driver, cabinet_page):
 def upvote_page(driver):
     driver.get(UpvotePage.url)
     return UpvotePage(driver=driver)
+
+@pytest.fixture
+def leadforms_page(driver, cabinet_page):
+    driver.get(LeadFormsPage.url)
+    return LeadFormsPage(driver=driver)
