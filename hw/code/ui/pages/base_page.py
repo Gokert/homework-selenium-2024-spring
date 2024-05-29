@@ -7,7 +7,11 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common import TimeoutException
+
 from selenium.webdriver.support.select import Select
+
+from selenium.webdriver.common.action_chains import ActionChains
+
 
 class PageNotOpenedExeption(Exception):
     pass
@@ -26,12 +30,10 @@ class BasePage(object):
 
     def __init__(self, driver):
         self.driver = driver
-        # fix it
-        # self.is_opened()
 
     def wait(self, timeout=None):
         if timeout is None:
-            timeout = 5
+            timeout = 8
         return WebDriverWait(self.driver, timeout=timeout)
 
     def find(self, locator, timeout=None):
@@ -42,6 +44,11 @@ class BasePage(object):
 
     def find_multiple(self, locator, timeout=None):
         return self.wait(timeout).until(EC.visibility_of_all_elements_located(locator))
+
+    @allure.step('Hover')
+    def hover(self, locator, timeout=5):
+        elem = self.wait(timeout).until(EC.presence_of_element_located(locator))
+        ActionChains(self.driver).move_to_element(elem).perform()
 
     @allure.step('Search')
     def search(self, query):
@@ -57,10 +64,18 @@ class BasePage(object):
         elem.click()
         return elem
 
-    @allure.step('Check')
+    @allure.step('visible')
     def became_visible(self, locator, timeout=None):
         try:
             self.wait(timeout).until(EC.visibility_of_element_located(locator))
+            return True
+        except TimeoutException:
+            return False
+
+    @allure.step('invisible')
+    def became_invisible(self, locator, timeout=None):
+        try:
+            self.wait(timeout).until(EC.invisibility_of_element_located(locator))
             return True
         except TimeoutException:
             return False
