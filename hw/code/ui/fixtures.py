@@ -12,6 +12,7 @@ from ui.pages.cabinet_page import CabinetPage
 from ui.pages.settings_page import SettingsPage
 from ui.pages.main_page import MainPage
 from ui.pages.pa_legal_entity_page import PALegalEntityPage
+from ui.pages.upvote_page import UpvotePage
 
 
 @pytest.fixture
