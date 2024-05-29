@@ -15,7 +15,7 @@ from ui.pages.main_page import MainPage
 from ui.pages.pa_legal_entity_page import PALegalEntityPage
 from ui.pages.upvote_page import UpvotePage
 from ui.pages.audience_page import AudiencePage
-
+from ui.pages.leadforms_page import LeadFormsPage
 
 @pytest.fixture
 def main_page(driver):
