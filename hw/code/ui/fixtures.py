@@ -13,6 +13,8 @@ from ui.pages.settings_page import SettingsPage
 from ui.pages.company_page import CompanyPage
 from ui.pages.main_page import MainPage
 from ui.pages.pa_legal_entity_page import PALegalEntityPage
+
+from ui.pages.catalog_page import CommerceCenterPage
 from ui.pages.upvote_page import UpvotePage
 from ui.pages.audience_page import AudiencePage
 from ui.pages.leadforms_page import LeadFormsPage
@@ -91,6 +93,18 @@ def legal_entity_page(driver, credentials_legal_entity, auth_page):
     auth_page.login(*credentials_legal_entity)
     return PALegalEntityPage(driver=driver)
 
+
+
+@pytest.fixture(scope='session')
+def credentials_catalog():
+    load_dotenv()
+    return os.getenv("LOGIN_NAME_CATALOG"), os.getenv("PASSWORD_CATALOG")
+
+@pytest.fixture
+def catalog_page(driver, credentials_catalog, auth_page):
+    auth_page.login(*credentials_catalog)
+    return CommerceCenterPage(driver=driver)
+
 @pytest.fixture
 def company_page(driver, cabinet_page):
     driver.get(CompanyPage.url)
@@ -105,3 +119,4 @@ def upvote_page(driver):
 def leadforms_page(driver, cabinet_page):
     driver.get(LeadFormsPage.url)
     return LeadFormsPage(driver=driver)
+

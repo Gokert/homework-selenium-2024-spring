@@ -7,7 +7,11 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common import TimeoutException
+
+from selenium.webdriver.support.select import Select
+
 from selenium.webdriver.common.action_chains import ActionChains
+
 
 class PageNotOpenedExeption(Exception):
     pass
@@ -95,3 +99,21 @@ class BasePage(object):
     @allure.step('Get tab')
     def get_tab(self, tab_num):
         return self.driver.window_handles[tab_num]
+    
+    @allure.step('Type Text')
+    def type_text(self, LOCATOR, text):
+        return self.find(LOCATOR, 10).send_keys(text)
+    
+    @allure.step('Type Text')
+    def dropbox_select(self, LOCATOR, value):
+        select = Select(self.find(LOCATOR))
+        if (type(value) == str):
+            return select.select_by_visible_text(value)
+            # select.select_by_value('value1')
+        if (type(value) == int):
+            return select.select_by_index(value)
+
+
+    def fill(self, locator, keys):
+        self.find(locator).send_keys(keys)
+

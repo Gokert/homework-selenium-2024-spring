@@ -1,5 +1,6 @@
 from ui.pages.base_page import BasePage
 from ui.locators.pa_legal_entity_locators import PALegalEntityLocators
+from selenium.webdriver.support.select import Select
 
 from selenium.common.exceptions import TimeoutException
 
@@ -63,7 +64,7 @@ class PALegalEntityPage(BasePage):
     @allure.step("Указание реквизитов в вкладке 'Бюджет' в панели слева")    
     def specify_banking_details(self):
         self.click(self.locators.LOCATOR_BUDGET_SPECIFY_DETAILS)
-        self.click(self.locators.LOCATOR_BUDGET_SPECIFY_DETAILS_CLOSE)
+        # self.click(self.locators.LOCATOR_BUDGET_SPECIFY_DETAILS_CLOSE)
 
     @allure.step("Нажатие на кнопку 'Права доступа' в панели слева")
     def click_to_access_right(self):
@@ -86,3 +87,35 @@ class PALegalEntityPage(BasePage):
     @allure.step("Сворачивание чата с поддержкой")
     def close_support_iframe(self, wait_time):
         self.click((By.XPATH, ".//button[@class='SAKIconButton']"),wait_time)
+    
+    @allure.step("Заполнение данных компании")
+    def set_company(self):
+        company_config = {
+            'inn': "2141341243",
+            'name': "testCompany",
+            'kpp': "123456789",
+            'ogrn': "1234567890123"
+            # 'addressIndex': "124323",
+            # 'addressCity': "123423",
+            # 'addressStreet': "123423",
+            # 'addressHouse': "423",
+            # 'contactorName': "AlfaIV",
+            # 'phone': "35435345345",
+            # 'site': "https://example.ru",
+            # 'resp_for_doc': ,
+            # 'resp_for_doc_phone': ,
+            # 'resp_for_doc_email': "https://example.ru",
+        }
+        for field in company_config.keys():
+            self.type_text(self.locators.LOCATOR_BUDGET_SPECIFY_DETAILS_COMPANY(field), company_config[field])
+        self.click(self.locators.LOCATOR_BUDGET_SPECIFY_DETAILS_NEXT)
+        self.click(self.locators.LOCATOR_BUDGET_SPECIFY_DETAILS_DROPBOX_CLICK)
+        time.sleep(5)
+
+        select = Select(self.find((By.XPATH, ".//select[@name='addressRegion']")))
+        select.select_by_index(0)
+        # self.dropbox_select(self.locators.LOCATOR_BUDGET_SPECIFY_DETAILS_DROPBOX,2)
+        # time.sleep(10)
+        # self.click(self.locators.LOCATOR_BUDGET_SPECIFY_DETAILS_NEXT)
+        # self.click(self.locators.LOCATOR_BUDGET_SPECIFY_DETAILS_NEXT)
+        
