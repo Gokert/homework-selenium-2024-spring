@@ -2,10 +2,6 @@ from selenium.webdriver.common.by import By
 
 class CabinetPageLocators():
     @staticmethod
-    def LEFT_MENU(section):
-        return By.XPATH, f"//*[@data-testid='left-menu']//span[text()='{section}']"
-
-    @staticmethod
     def CLICK_BUTTON(section):
         return By.XPATH, f"//*[contains(@class, '{section}')]"
 
@@ -18,7 +14,6 @@ class CabinetPageLocators():
     EDUCATION_MODAL = (By.XPATH, "//*[contains(@class, 'ModalRoot_componentWrapper__')]")
     EDUCATION_EXIT = (By.XPATH, "//*[contains(@class, 'vkuiModalDismissButton')]")
     HELP_MODAL = (By.XPATH, "//*[contains(@class, 'Tooltip_tooltipContainer__')]")
-    HELP_ICON = (By.XPATH, "//*[@class='vkuiSimpleCell__content']//span[text()='Помощь']")
     WELCOME_VK_PANEL = (By.XPATH, "//*[contains(@class, 'WelcomePanel_wrapper__')]")
     REVIEW_COMPANY = (By.XPATH, "//*[contains(@class, 'StatisticsPanel_wrapper__')]")
     COMPANY_BUTTON = (By.XPATH, "//*[contains(@class, 'EmptyView_fullViewContent__')]")
