@@ -13,6 +13,7 @@ from ui.pages.settings_page import SettingsPage
 from ui.pages.main_page import MainPage
 from ui.pages.pa_legal_entity_page import PALegalEntityPage
 from ui.pages.upvote_page import UpvotePage
+from ui.pages.audience_page import AudiencePage
 
 
 @pytest.fixture
@@ -74,6 +75,10 @@ def settings_page(driver, cabinet_page):
     driver.get(SettingsPage.url)
     return SettingsPage(driver=driver)
 
+@pytest.fixture
+def audience_page(driver, cabinet_page):
+    driver.get(AudiencePage.url)
+    return AudiencePage(driver=driver)
 
 @pytest.fixture(scope='session')
 def credentials_legal_entity():
@@ -82,7 +87,6 @@ def credentials_legal_entity():
 
 @pytest.fixture
 def legal_entity_page(driver, credentials_legal_entity, auth_page):
-    # driver.get(SettingsPage.url)
     auth_page.login(*credentials_legal_entity)
     return PALegalEntityPage(driver=driver)
 

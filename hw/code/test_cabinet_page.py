@@ -1,3 +1,5 @@
+import time
+
 from base_case import BaseCase
 from ui.locators.cabinet_page_locators import CabinetPageLocators
 
