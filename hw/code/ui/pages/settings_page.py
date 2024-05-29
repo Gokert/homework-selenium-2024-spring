@@ -5,14 +5,11 @@ class SettingsPage(BasePage):
     locators = SettingPageLocators()
     url = 'https://ads.vk.com/hq/settings'
 
-    def click_header_general(self):
-        self.click(self.locators.GENERAL_HEADER)
-
-    def click_header_logs(self):
-        self.click(self.locators.LOGS_HEADER)
-
     def click_header_notif(self):
-        self.click(self.locators.NOTIF_HEADER)
+        return self.click(self.locators.NOTIF_HEADER)
 
-    def click_header_access(self):
-        self.click(self.locators.ACCESS_HEADER)
+    def click_button(self, section):
+        return self.click(section)
+
+    def check_panel(self, section):
+        return self.became_visible(section)
