@@ -1,4 +1,5 @@
 import pytest
+import time
 import allure
 from base_case import BaseCase
 from configs import test_help_button_parameters
@@ -30,6 +31,7 @@ class TestPALegalEntity(BaseCase):
     def test_budget(self, legal_entity_page):
         legal_entity_page.click_to_budget()
         legal_entity_page.specify_banking_details()
+        legal_entity_page.set_company()
 
     @allure.sub_suite("Тестирование вкладки 'Права доступа'")
     def test_access_right(self, legal_entity_page):
