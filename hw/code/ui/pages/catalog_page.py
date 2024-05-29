@@ -13,8 +13,6 @@ class CommerceCenterPage(BasePage):
         self.click(self.locators.CREATE_CATALOG_BTN_LOCATOR,20)
 
     def open_catalog_settings(self):
-        # self.click(self.locators.CATALOG_MENU_BTNS_LOCATOR)
-        # self.click(self.locators.MENU_ITEM_BTNS_LOCATOR)
         self.find(self.locators.CATALOG_NAME_INPUT_LOCATOR, 100)
         
     def rename_catalog(self, new_name):
@@ -44,11 +42,6 @@ class CommerceCenterPage(BasePage):
         self.click(self.locators.left_menu.COMMERCE_CENTER_BTN_LOCATOR)
 
     def clear_catalogs(self):
-        # self.click(self.locators.CATALOG_MENU_BTNS_LOCATOR)
-        # delete_btn = self.find_all(self.locators.MENU_ITEM_BTNS_LOCATOR)[1]
-        # delete_btn.click()
-        # self.hover(self.locators.REMOVE_CATALOG_MODAL_BTN_LOCATOR)
-        # self.click(self.locators.REMOVE_CATALOG_MODAL_BTN_LOCATOR)
         self.find(self.locators.SUCCESS_CATALOG_REMOVE_NOTIFY_LOCATOR, 100)
 
     def search_catalog(self, catalog_name):

@@ -1,5 +1,4 @@
 from base_case import BaseCase
-from selenium.webdriver.common.by import By
 from ui.locators.catalog_locators import FeedSources
 
 class TestCommerceCenter(BaseCase):
