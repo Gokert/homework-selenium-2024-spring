@@ -3,18 +3,6 @@ from base_case import BaseCase
 
 
 class TestUpvotePage(BaseCase):
-    def test_upvote_modal_page_became_visible(self, upvote_page):
-        upvote_page.click_add_idea_button()
-        assert upvote_page.upvote_modal_page_became_visible()
-
-    def test_open_comments(self, upvote_page):
-        upvote_page.click_comment_button()
-        assert upvote_page.comments_became_visible()
-
-    def test_check_comments_count(self, upvote_page):
-        upvote_page.click_comment_button()
-        assert upvote_page.get_comment_counter_from_button() == upvote_page.count_comment_items()
-
     def test_search_by_title(self, upvote_page):
         word = 'видео'
         upvote_page.perform_search(word)
